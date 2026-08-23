@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Youssef Ahmed is a final-year software engineering student building full-stack React, Node.js, MongoDB, and AI-powered web applications.">
 <title>Youssef Ahmed — Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,9 +71,17 @@ nav.scrolled{
 }
 .hero-name em{color:var(--accent);font-style:normal;}
 .hero-desc{
-  max-width:500px;font-size:1.05rem;line-height:1.75;color:var(--muted);
-  margin-bottom:2.5rem;
+  max-width:610px;font-size:1.08rem;line-height:1.75;color:var(--muted);
+  margin-bottom:2rem;
   opacity:0;animation:fadeUp 0.9s 0.5s forwards;
+}
+.hero-proof{
+  display:flex;flex-wrap:wrap;gap:0.7rem;margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 0.9s 0.58s forwards;
+}
+.proof-pill{
+  border:1px solid var(--border);border-radius:2rem;padding:0.35rem 0.8rem;
+  color:var(--text);background:rgba(237,234,225,0.6);font-size:0.82rem;font-weight:600;
 }
 .hero-cta{
   display:flex;gap:1rem;align-items:center;flex-wrap:wrap;
@@ -140,6 +149,7 @@ nav.scrolled{
   transition:transform 0.28s cubic-bezier(0.22,0.61,0.36,1),box-shadow 0.28s;
   border:1px solid transparent;
 }
+.proj-card.featured{grid-column:1/-1;padding:2.35rem;}
 .proj-card::after{
   content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
   background:var(--accent);transform:scaleX(0);transform-origin:left;
@@ -151,7 +161,7 @@ nav.scrolled{
   border-color:rgba(212,69,26,0.12);
 }
 .proj-card:hover::after{transform:scaleX(1);}
-.proj-links{display:flex;gap:0.6rem;margin-top:1.1rem;}
+.proj-links{display:flex;gap:0.6rem;margin-top:1.1rem;flex-wrap:wrap;}
 .proj-btn{
   font-size:0.8rem;font-weight:600;text-decoration:none;
   padding:0.35rem 0.9rem;border-radius:2rem;
@@ -161,13 +171,19 @@ nav.scrolled{
 .proj-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
 .proj-btn.ghost{background:transparent;}
 .proj-num{
-  letter-spacing:0.08em;color:var(--accent);opacity:0.55;margin-bottom:0.9rem;
+  letter-spacing:0.08em;color:var(--accent);opacity:0.65;margin-bottom:0.9rem;font-size:0.78rem;
 }
 .proj-name{
   font-family:var(--fd);font-weight:700;font-size:1.2rem;
   letter-spacing:-0.01em;color:var(--text);margin-bottom:0.55rem;
 }
-.proj-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.3rem;}
+.featured .proj-name{font-size:clamp(1.55rem,3vw,2.35rem);}
+.proj-desc{font-size:0.9rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem;max-width:760px;}
+.proj-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.8rem;margin:1.15rem 0;}
+.meta-item{background:rgba(247,246,241,0.58);border:1px solid var(--border);border-radius:0.7rem;padding:0.8rem 0.95rem;}
+.meta-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
+.meta-val{font-family:var(--fd);font-weight:700;font-size:0.92rem;color:var(--text);line-height:1.35;}
+.proj-impact{color:var(--text);font-size:0.88rem;line-height:1.55;margin:0 0 1.2rem;padding-left:1rem;border-left:2px solid rgba(212,69,26,0.35);}
 .proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
 .proj-tag{
   font-size:0.73rem;font-weight:600;background:rgba(17,17,17,0.07);
@@ -195,7 +211,7 @@ nav.scrolled{
 
 /* CONTACT */
 .contact-center{text-align:center;}
-.contact-sub{font-size:1.05rem;color:var(--muted);max-width:440px;margin:0 auto 2.5rem;}
+.contact-sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 2.5rem;}
 .contact-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .contact-btn{
   display:inline-flex;align-items:center;gap:0.5rem;font-size:0.9rem;
@@ -207,6 +223,7 @@ nav.scrolled{
   border-color:var(--accent);color:var(--accent);
   background:var(--accent-pale);transform:translateY(-2px);
 }
+.contact-note{margin-top:1.2rem;color:var(--muted);font-size:0.88rem;}
 
 /* FOOTER */
 footer{
@@ -231,10 +248,13 @@ footer{
   .hero-bg-word{display:none;}
   .s-block{padding:4rem 0;}
   .nav-links{gap:1.25rem;}
+  .proj-card.featured{padding:2rem;}
 }
 @media(max-width:480px){
   .nav-links{display:none;}
   .hero-cta{flex-direction:column;align-items:flex-start;}
+  .hero-proof{gap:0.5rem;}
+  .proof-pill{font-size:0.78rem;}
 }
 </style>
 </head>
@@ -253,12 +273,20 @@ footer{
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-eyebrow">Software Engineer</p>
+  <p class="hero-eyebrow">Full-Stack Software Engineer</p>
   <h1 class="hero-name">Youssef<br><em>Ahmed.</em></h1>
-  <p class="hero-desc">Final-year Software Engineering student building full-stack web apps, AI-powered platforms, and interactive experiences that actually ship.</p>
+  <p class="hero-desc">Final-year Software Engineering student building production-minded web apps with React, Node.js, MongoDB, and AI integrations. I like turning ambitious ideas into polished, deployed products.</p>
+  <div class="hero-proof">
+    <span class="proof-pill">React + TypeScript</span>
+    <span class="proof-pill">Node.js APIs</span>
+    <span class="proof-pill">MongoDB</span>
+    <span class="proof-pill">OpenAI API</span>
+    <span class="proof-pill">Deployed apps</span>
+  </div>
   <div class="hero-cta">
     <a href="#projects" class="btn-solid">View Projects</a>
-    <a href="#contact" class="btn-line">Get in touch →</a>
+    <a href="https://github.com/joessef97" target="_blank" rel="noopener" class="btn-line">GitHub</a>
+    <a href="mailto:youssef_ahmed02@hotmail.com?subject=CV%20Request%20-%20Youssef%20Ahmed" class="btn-line">Request CV</a>
   </div>
   <div class="hero-bg-word" aria-hidden="true">YA</div>
 
@@ -272,10 +300,10 @@ footer{
   <p class="s-label reveal">About</p>
   <div class="about-cols">
     <div>
-      <h2 class="s-title reveal">Building things<br>that matter.</h2>
+      <h2 class="s-title reveal">I build usable software, not just coursework.</h2>
       <div class="about-text reveal">
-        <p>I'm a final-year Software Engineering student at The British University in Egypt (BUE), affiliated with London South Bank University. I work across the full stack — React frontends, Node.js APIs, and MongoDB databases — with a growing focus on AI integration.</p>
-        <p>From AI comic generators to competitive auction systems, I enjoy projects that combine good engineering with genuine usefulness. I care about clean code, thoughtful architecture, and products that feel polished.</p>
+        <p>I'm a final-year Software Engineering student at The British University in Egypt (BUE), affiliated with London South Bank University. My strongest work sits across React frontends, Node.js APIs, MongoDB databases, authentication flows, and AI-powered product features.</p>
+        <p>I enjoy projects with real product shape: protected user accounts, searchable interfaces, persistent data, deployed demos, testable backend logic, and details that make an app feel finished. My current focus is full-stack development with practical AI integration.</p>
       </div>
     </div>
     <div class="about-cards reveal">
@@ -287,7 +315,10 @@ footer{
         <div class="about-card-label">Degree</div>
         <div class="about-card-val">BSc Computer Science — Software Engineering</div>
       </div>
-
+      <div class="about-card">
+        <div class="about-card-label">Focus</div>
+        <div class="about-card-val">Full-stack web apps, APIs, AI product features</div>
+      </div>
       <div class="about-card">
         <div class="about-card-label">Languages</div>
         <div class="about-card-val">Arabic (Native) · English (Fluent)</div>
@@ -306,10 +337,25 @@ footer{
   <h2 class="s-title reveal">Selected Projects</h2>
   <div class="proj-grid">
 
-    <div class="proj-card reveal">
-      <div class="proj-num">01 · 2025–2026 &nbsp;·&nbsp; 🎓 Graduation Project</div>
+    <div class="proj-card featured reveal">
+      <div class="proj-num">01 · 2025-2026 · Graduation Project</div>
       <div class="proj-name">ComicMind</div>
-      <p class="proj-desc">Full-stack AI platform for generating multi-panel comic  stories from text prompts using OpenAI's gpt-image-2. Includes JWT auth, story CRUD, protected routes, and Cloudinary-based image storage. Delivered as a final-year graduation project with technical report, interim demos, and VIVA presentation.</p>
+      <p class="proj-desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. Built with a React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage.</p>
+      <div class="proj-meta">
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-val">Full-stack developer</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Scope</div>
+          <div class="meta-val">Auth, CRUD, AI generation, deployment</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Proof</div>
+          <div class="meta-val">Final report, interim demos, VIVA</div>
+        </div>
+      </div>
+      <p class="proj-impact">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application.</p>
       <div class="proj-tags">
         <span class="proj-tag">React</span>
         <span class="proj-tag">TypeScript</span>
@@ -317,16 +363,19 @@ footer{
         <span class="proj-tag">MongoDB</span>
         <span class="proj-tag">OpenAI API</span>
         <span class="proj-tag">Cloudinary</span>
+        <span class="proj-tag">JWT</span>
       </div>
       <div class="proj-links">
-        <a href="https://comicmind.onrender.com/" target="_blank" rel="noopener" class="proj-btn">Live Demo ↗</a>
+        <a href="https://comicmind.onrender.com/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
+        <a href="mailto:youssef_ahmed02@hotmail.com?subject=ComicMind%20technical%20walkthrough" class="proj-btn ghost">Discuss Build</a>
       </div>
     </div>
 
     <div class="proj-card reveal">
       <div class="proj-num">02 · 2025</div>
       <div class="proj-name">Game Discovery Platform</div>
-      <p class="proj-desc">Full-stack app for searching and exploring video games via an external API. Features authentication, autocomplete search, and a fully responsive UI. Deployed on Vercel with backend hosted on GitHub.</p>
+      <p class="proj-desc">Full-stack app for searching and exploring video games through an external API. Includes authentication, autocomplete search, responsive layouts, and a deployed frontend.</p>
+      <p class="proj-impact">Shows practical API integration, user-facing search UX, and deployment workflow.</p>
       <div class="proj-tags">
         <span class="proj-tag">React</span>
         <span class="proj-tag">Node.js</span>
@@ -335,14 +384,15 @@ footer{
         <span class="proj-tag">Vercel</span>
       </div>
       <div class="proj-links">
-        <a href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo ↗</a>
+        <a href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
       </div>
     </div>
 
     <div class="proj-card reveal">
       <div class="proj-num">03 · 2023</div>
       <div class="proj-name">Online Auction System</div>
-      <p class="proj-desc">GUI-based auction system in Java Swing applying Strategy, Observer, and Template Method design patterns. Backed by comprehensive JUnit5 test suites verifying core bidding and lifecycle logic.</p>
+      <p class="proj-desc">GUI-based auction system in Java Swing applying Strategy, Observer, and Template Method design patterns. Backed by JUnit5 test suites for bidding and auction lifecycle logic.</p>
+      <p class="proj-impact">Highlights object-oriented design, test coverage, and maintainable Java architecture.</p>
       <div class="proj-tags">
         <span class="proj-tag">Java</span>
         <span class="proj-tag">Swing</span>
@@ -354,7 +404,8 @@ footer{
     <div class="proj-card reveal">
       <div class="proj-num">04 · 2024</div>
       <div class="proj-name">Habit Tracker Microservice</div>
-      <p class="proj-desc">Standalone microservice (Service 2) in a multi-team project delivering five features — create, edit, delete, complete, and history tracking — with a React/Vite/Tailwind frontend and MongoDB Atlas backend.</p>
+      <p class="proj-desc">Standalone microservice in a multi-team project delivering create, edit, delete, complete, and history tracking features with a React/Vite/Tailwind frontend and MongoDB Atlas backend.</p>
+      <p class="proj-impact">Demonstrates ownership inside a team system and the ability to ship a bounded service.</p>
       <div class="proj-tags">
         <span class="proj-tag">React</span>
         <span class="proj-tag">Vite</span>
@@ -367,7 +418,8 @@ footer{
     <div class="proj-card reveal">
       <div class="proj-num">05 · 2022</div>
       <div class="proj-name">2D Action Game</div>
-      <p class="proj-desc">Single-level 2D game with sword combat mechanics, a health bar UI, checkpoint-based respawn system, dialogue interaction, and an original background music and sound effects implementation.</p>
+      <p class="proj-desc">Single-level 2D game with sword combat, health bar UI, checkpoint-based respawn, dialogue interaction, and custom background music and sound effects.</p>
+      <p class="proj-impact">Adds range beyond web apps, with gameplay loops, state management, and interaction design.</p>
       <div class="proj-tags">
         <span class="proj-tag">Java</span>
         <span class="proj-tag">Game Engine</span>
@@ -378,14 +430,15 @@ footer{
     <div class="proj-card reveal">
       <div class="proj-num">06 · 2025</div>
       <div class="proj-name">Sports Event Booking</div>
-      <p class="proj-desc">Responsive frontend for browsing and booking sports events, featuring interactive JavaScript features and a clean, user-friendly interface built with semantic HTML and CSS.</p>
+      <p class="proj-desc">Responsive frontend for browsing and booking sports events, featuring interactive JavaScript behavior and a clean, semantic HTML/CSS interface.</p>
+      <p class="proj-impact">A focused frontend project that shows layout, interaction, and responsive UI fundamentals.</p>
       <div class="proj-tags">
         <span class="proj-tag">HTML</span>
         <span class="proj-tag">CSS</span>
         <span class="proj-tag">JavaScript</span>
       </div>
       <div class="proj-links">
-        <a href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo ↗</a>
+        <a href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
       </div>
     </div>
 
@@ -407,6 +460,7 @@ footer{
       <div class="skill-pills">
         <span class="skill-pill">Java</span>
         <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">TypeScript</span>
         <span class="skill-pill">Python</span>
         <span class="skill-pill">C++</span>
         <span class="skill-pill">SQL</span>
@@ -422,6 +476,7 @@ footer{
         <span class="skill-pill">TypeScript</span>
         <span class="skill-pill">Tailwind CSS</span>
         <span class="skill-pill">Vite</span>
+        <span class="skill-pill">Responsive UI</span>
       </div>
     </div>
 
@@ -433,7 +488,7 @@ footer{
         <span class="skill-pill">MongoDB</span>
         <span class="skill-pill">MongoDB Atlas</span>
         <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">JWT</span>
+        <span class="skill-pill">JWT Auth</span>
       </div>
     </div>
 
@@ -443,6 +498,7 @@ footer{
         <span class="skill-pill">Git</span>
         <span class="skill-pill">GitHub</span>
         <span class="skill-pill">Vercel</span>
+        <span class="skill-pill">Render</span>
         <span class="skill-pill">Postman</span>
         <span class="skill-pill">VS Code</span>
         <span class="skill-pill">Cloudinary</span>
@@ -451,13 +507,12 @@ footer{
     </div>
 
     <div class="skill-group reveal">
-      <h3>AI & Emerging</h3>
+      <h3>AI & Product</h3>
       <div class="skill-pills">
         <span class="skill-pill">OpenAI API</span>
-        <span class="skill-pill">gpt-image-1</span>
-        <span class="skill-pill">gpt-image-2</span>
-        <span class="skill-pill">GitHub Copilot</span>
+        <span class="skill-pill">Image Generation</span>
         <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">Product Thinking</span>
       </div>
     </div>
 
@@ -471,14 +526,16 @@ footer{
 <div class="page-wrap">
 <div class="s-block contact-center" id="contact">
   <p class="s-label reveal">Contact</p>
-  <h2 class="s-title reveal">Let's Work Together</h2>
-  <p class="contact-sub reveal">Open to opportunities, collaborations, and interesting problems. Always happy to talk.</p>
+  <h2 class="s-title reveal">Let's Build Something Useful</h2>
+  <p class="contact-sub reveal">Open to software engineering opportunities, internships, collaborations, and technical walkthroughs of my projects.</p>
   <div class="contact-row reveal">
-    <a href="mailto:youssef_ahmed02@hotmail.com" class="contact-btn">✉&nbsp; Email</a>
-    <a href="https://linkedin.com/in/youssef-ahmed-545915283" target="_blank" rel="noopener" class="contact-btn">in&nbsp; LinkedIn</a>
-    <a href="https://github.com/joessef97" target="_blank" rel="noopener" class="contact-btn">&lt;/&gt;&nbsp; GitHub</a>
-    <a href="tel:+201029972524" class="contact-btn">☎&nbsp; +20 102 997 2524</a>
+    <a href="mailto:youssef_ahmed02@hotmail.com" class="contact-btn">Email</a>
+    <a href="mailto:youssef_ahmed02@hotmail.com?subject=CV%20Request%20-%20Youssef%20Ahmed" class="contact-btn">Request CV</a>
+    <a href="https://linkedin.com/in/youssef-ahmed-545915283" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
+    <a href="https://github.com/joessef97" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
+    <a href="tel:+201029972524" class="contact-btn">+20 102 997 2524</a>
   </div>
+  <p class="contact-note reveal">Based in Egypt. Available for remote-friendly roles and project conversations.</p>
 </div>
 </div>
 
