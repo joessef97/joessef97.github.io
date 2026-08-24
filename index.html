@@ -3,596 +3,518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Youssef Ahmed is a final-year software engineering student building full-stack React, Node.js, MongoDB, and AI-powered web applications.">
 <title>Youssef Ahmed — Software Engineer</title>
+<meta name="description" content="Youssef Ahmed is a Software Engineering student at The British University in Egypt building full-stack React, Node.js and MongoDB applications, AI-powered platforms, and automated testing solutions.">
+<meta name="author" content="Youssef Ahmed">
+<link rel="canonical" href="https://joessef97.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Youssef Ahmed — Software Engineer">
+<meta property="og:description" content="Full-stack web applications, AI-powered platforms, and automated testing solutions with React, Node.js, MongoDB, Java and Selenium.">
+<meta property="og:url" content="https://joessef97.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
-:root {
+:root{
   --bg:#F7F6F1;
   --surface:#EDEAE1;
   --text:#111111;
-  --muted:#6B6860;
+  --muted:#5E5B54;
+  --faint:#8A867D;
   --accent:#D4451A;
-  --accent-pale:rgba(212,69,26,0.07);
-  --border:rgba(17,17,17,0.1);
-  --card-hover-shadow:0 16px 48px rgba(17,17,17,0.09);
+  --accent-light:#E8794F;
+  --border:rgba(17,17,17,0.09);
   --fd:'Syne',sans-serif;
   --fb:'Karla',sans-serif;
+  --fm:'JetBrains Mono',ui-monospace,monospace;
+  --wrap:1120px;
+  --pad:clamp(1.25rem,4vw,2.5rem);
+  --sec-y:clamp(3rem,7vw,5.5rem);
 }
 
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1.3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;
-  transition:background 0.35s,border-color 0.35s;
-  border-bottom:1px solid transparent;
-}
-nav.scrolled{
-  background:rgba(247,246,241,0.9);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-color:var(--border);
-}
-.nav-logo{
-  font-family:var(--fd);font-weight:800;font-size:1.15rem;
-  color:var(--text);text-decoration:none;letter-spacing:-0.02em;
-}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{
-  color:var(--muted);text-decoration:none;font-size:0.88rem;
-  font-weight:500;letter-spacing:0.01em;transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--text);}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+.section{border-top:1px solid var(--border);}
+.section > .wrap{padding-top:var(--sec-y);padding-bottom:var(--sec-y);}
 
-/* HERO */
-#hero{
-  min-height:100vh;padding:0 6vw;
-  display:flex;flex-direction:column;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.hero-eyebrow{
-  font-size:0.8rem;font-weight:600;letter-spacing:0.14em;
-  text-transform:uppercase;color:var(--accent);
-  margin-bottom:1.4rem;
-  opacity:0;animation:fadeUp 0.8s 0.15s forwards;
-}
-.hero-name{
-  font-family:var(--fd);font-weight:800;
-  font-size:clamp(2.8rem,7vw,6.5rem);
-  line-height:0.9;letter-spacing:-0.035em;
-  color:var(--text);margin-bottom:2rem;
-  opacity:0;animation:fadeUp 0.9s 0.3s forwards;
-}
-.hero-name em{color:var(--accent);font-style:normal;}
-.hero-desc{
-  max-width:610px;font-size:1.08rem;line-height:1.75;color:var(--muted);
-  margin-bottom:2rem;
-  opacity:0;animation:fadeUp 0.9s 0.5s forwards;
-}
-.hero-proof{
-  display:flex;flex-wrap:wrap;gap:0.7rem;margin-bottom:2.5rem;
-  opacity:0;animation:fadeUp 0.9s 0.58s forwards;
-}
-.proof-pill{
-  border:1px solid var(--border);border-radius:2rem;padding:0.35rem 0.8rem;
-  color:var(--text);background:rgba(237,234,225,0.6);font-size:0.82rem;font-weight:600;
-}
-.hero-cta{
-  display:flex;gap:1rem;align-items:center;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 0.9s 0.65s forwards;
-}
-.btn-solid{
-  background:var(--text);color:var(--bg);padding:0.8rem 1.85rem;
-  border-radius:2rem;font-family:var(--fb);font-size:0.9rem;font-weight:600;
-  text-decoration:none;transition:background 0.22s,transform 0.22s;
-  display:inline-block;
-}
-.btn-solid:hover{background:var(--accent);transform:translateY(-2px);}
-.btn-line{
-  color:var(--text);font-size:0.9rem;font-weight:500;text-decoration:none;
-  border-bottom:1.5px solid rgba(17,17,17,0.25);padding-bottom:2px;
-  transition:color 0.2s,border-color 0.2s;
-}
-.btn-line:hover{color:var(--accent);border-color:var(--accent);}
+.skip{position:absolute;left:-9999px;top:0;background:var(--text);color:var(--bg);padding:0.6rem 1rem;z-index:200;}
+.skip:focus{left:1rem;top:1rem;}
 
-.hero-bg-word{
-  position:absolute;right:-3vw;bottom:-4vw;
-  font-family:var(--fd);font-size:36vw;font-weight:800;
-  color:rgba(17,17,17,0.035);pointer-events:none;user-select:none;
-  line-height:1;letter-spacing:-0.05em;
-}
+/* ---------- HEADER ---------- */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(247,246,241,0.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.header-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:0.9rem;padding-bottom:0.9rem;}
+.brand{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:var(--text);color:var(--bg);font-family:var(--fd);font-weight:800;font-size:0.8rem;display:flex;align-items:center;justify-content:center;letter-spacing:-0.02em;}
+.brand-name{font-family:var(--fd);font-weight:700;font-size:0.98rem;letter-spacing:-0.01em;}
+.nav{display:flex;align-items:center;gap:0.35rem;}
+.nav a{color:var(--muted);text-decoration:none;font-size:0.86rem;font-weight:600;padding:0.45rem 0.7rem;border-radius:6px;transition:color .18s,background .18s;}
+.nav a:hover,.nav a[aria-current="true"]{color:var(--text);background:rgba(17,17,17,0.05);}
+.nav a.nav-cta{margin-left:0.5rem;background:var(--text);color:var(--bg);padding:0.5rem 1.05rem;border-radius:2rem;}
+.nav a.nav-cta:hover{background:var(--accent);color:var(--bg);}
+.nav-toggle{display:none;background:transparent;border:1px solid rgba(17,17,17,0.16);border-radius:8px;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;}
+.nav-toggle span{display:block;width:17px;height:1.6px;background:var(--text);}
+.nav-mobile{display:none;border-top:1px solid var(--border);flex-direction:column;padding:0.5rem var(--pad) 1rem;}
+.nav-mobile a{text-decoration:none;font-size:1rem;font-weight:600;padding:0.85rem 0;border-bottom:1px solid rgba(17,17,17,0.07);}
+.nav-mobile a:last-child{border-bottom:none;}
+.nav-mobile.open{display:flex;}
 
+/* ---------- HERO ---------- */
+.hero{padding-top:clamp(3.5rem,9vw,7rem);padding-bottom:clamp(3rem,6vw,5rem);}
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,4rem);align-items:end;}
+.pill{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--fm);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(212,69,26,0.25);background:rgba(212,69,26,0.06);border-radius:2rem;padding:0.3rem 0.75rem;margin-bottom:1.1rem;}
+.hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(2.4rem,6vw,4.4rem);line-height:0.98;letter-spacing:-0.035em;margin-bottom:0.9rem;}
+.hero-role{font-family:var(--fd);font-weight:700;font-size:clamp(1rem,2.2vw,1.3rem);line-height:1.35;letter-spacing:-0.01em;color:var(--accent);margin-bottom:1.3rem;}
+.hero-desc{max-width:560px;font-size:1.05rem;line-height:1.7;color:var(--muted);margin-bottom:1.8rem;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;margin-bottom:1.5rem;}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0.8rem 1.6rem;border-radius:2rem;font-size:0.92rem;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s;}
+.btn-solid{background:var(--text);color:var(--bg);}
+.btn-solid:hover{background:var(--accent);color:var(--bg);}
+.btn-outline{border:1.5px solid rgba(17,17,17,0.18);color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);background:rgba(212,69,26,0.06);}
+.hero-links{display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;}
+.hero-links a{font-family:var(--fm);font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(17,17,17,0.2);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.hero-links a:hover{color:var(--accent);border-color:var(--accent);}
+.hero-aside{border-left:2px solid rgba(212,69,26,0.35);padding-left:1.4rem;display:flex;flex-direction:column;gap:0.6rem;}
+.hero-aside .kicker{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--faint);margin-bottom:0.3rem;}
+.hero-aside p{font-family:var(--fd);font-weight:700;font-size:1.02rem;line-height:1.5;}
+.hero-aside p.dim{color:var(--muted);}
 
-/* LAYOUT WRAPPER */
-.page-wrap{max-width:1120px;margin:0 auto;padding:0 2.5rem;}
+/* ---------- SECTION HEADS ---------- */
+.s-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.2rem;}
+.s-num{font-family:var(--fm);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);}
+.s-rule{flex:1;height:1px;background:rgba(17,17,17,0.1);}
+.s-title{font-family:var(--fd);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-0.025em;line-height:1.12;text-wrap:pretty;}
+.s-intro{color:var(--muted);font-size:1rem;max-width:620px;}
 
-/* SECTION SHARED */
-.s-block{padding:6rem 0;}
-.s-label{
-  font-size:0.73rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:0.9rem;
-}
-.s-title{
-  font-family:var(--fd);font-weight:700;
-  font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.025em;
-  line-height:1.1;color:var(--text);margin-bottom:3rem;
-}
+/* ---------- ABOUT ---------- */
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,4rem);align-items:start;}
+.about-text .s-title{margin-bottom:1.4rem;}
+.about-text p{color:var(--muted);font-size:1.02rem;line-height:1.7;}
+.about-text p + p{margin-top:1rem;}
+.fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.85rem;}
+.fact{background:var(--surface);border-radius:12px;padding:1.1rem 1.25rem;}
+.fact dt{font-family:var(--fm);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:0.4rem;}
+.fact dd{font-family:var(--fd);font-weight:700;font-size:0.97rem;line-height:1.4;}
 
-/* DIVIDER */
-.hr{border:none;border-top:1px solid var(--border);max-width:1120px;margin:0 auto 0;}
+/* ---------- PROJECTS ---------- */
+.proj-list{display:grid;gap:1.1rem;}
+.proj-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.1rem;}
+.card{background:var(--surface);border:1px solid rgba(17,17,17,0.06);border-radius:14px;transition:border-color .22s,transform .22s;}
+.card:hover{border-color:rgba(212,69,26,0.3);transform:translateY(-2px);}
+.card-lg{padding:clamp(1.4rem,3vw,2.1rem);}
+.card-sm{padding:1.5rem;display:flex;flex-direction:column;}
+.card-meta{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;margin-bottom:0.9rem;}
+.card-num{font-family:var(--fm);font-size:0.72rem;color:var(--faint);letter-spacing:0.08em;}
+.card-badge{font-family:var(--fm);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(17,17,17,0.15);border-radius:2rem;padding:0.2rem 0.7rem;}
+.card-lg h3{font-family:var(--fd);font-weight:700;font-size:clamp(1.35rem,2.6vw,1.95rem);letter-spacing:-0.02em;line-height:1.15;margin-bottom:0.7rem;}
+.card-sm h3{font-family:var(--fd);font-weight:700;font-size:1.18rem;letter-spacing:-0.015em;line-height:1.25;margin-bottom:0.6rem;}
+.card-lg .desc{font-size:0.98rem;color:var(--muted);line-height:1.7;margin-bottom:1.3rem;max-width:760px;}
+.card-sm .desc{font-size:0.92rem;color:var(--muted);line-height:1.65;margin-bottom:0.9rem;}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;margin-bottom:1.3rem;}
+.spec > div{background:var(--bg);border-radius:10px;padding:0.85rem 1rem;}
+.spec dt{font-family:var(--fm);font-size:0.66rem;letter-spacing:0.11em;text-transform:uppercase;color:var(--faint);margin-bottom:0.3rem;}
+.spec dd{font-family:var(--fd);font-weight:700;font-size:0.92rem;line-height:1.4;}
+.note{color:var(--text);padding-left:1rem;border-left:2px solid rgba(212,69,26,0.35);max-width:760px;}
+.card-lg .note{font-size:0.94rem;line-height:1.65;margin-bottom:1.3rem;}
+.card-sm .note{font-size:0.89rem;line-height:1.6;margin-bottom:1.1rem;padding-left:0.85rem;}
+.tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tags li{font-family:var(--fm);font-size:0.76rem;background:rgba(17,17,17,0.06);padding:0.25rem 0.6rem;border-radius:5px;}
+.card-sm .tags li{font-size:0.74rem;padding:0.22rem 0.55rem;}
+.card-links{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-top:1.2rem;}
+.link-btn{display:inline-flex;align-items:center;min-height:40px;font-size:0.85rem;font-weight:600;text-decoration:none;padding:0.5rem 1.1rem;border-radius:2rem;border:1.5px solid rgba(17,17,17,0.16);color:var(--text);transition:background .2s,color .2s,border-color .2s;}
+.link-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.card-sm .link-btn{margin-top:auto;align-self:flex-start;}
 
-/* ABOUT */
-.about-cols{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
-.about-text p{color:var(--muted);margin-bottom:1rem;font-size:1.025rem;}
-.about-cards{display:flex;flex-direction:column;gap:1rem;}
-.about-card{
-  padding:1.2rem 1.4rem;background:var(--surface);
-  border-radius:0.85rem;border-left:3px solid var(--accent);
-}
-.about-card-label{
-  font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:0.3rem;
-}
-.about-card-val{font-family:var(--fd);font-weight:600;font-size:1rem;color:var(--text);}
+/* ---------- SKILLS ---------- */
+.tinted{background:var(--surface);}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;}
+.skill-card{background:var(--bg);border-radius:12px;padding:1.4rem;}
+.skill-card h3{font-family:var(--fd);font-weight:700;font-size:0.95rem;letter-spacing:-0.01em;margin-bottom:1rem;padding-bottom:0.7rem;border-bottom:1px solid rgba(17,17,17,0.1);}
+.chips{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.chips li{font-size:0.85rem;font-weight:500;background:rgba(17,17,17,0.05);padding:0.3rem 0.75rem;border-radius:2rem;}
 
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;}
-.proj-card{
-  background:var(--surface);border-radius:1rem;padding:2rem;
-  position:relative;overflow:hidden;
-  transition:transform 0.28s cubic-bezier(0.22,0.61,0.36,1),box-shadow 0.28s;
-  border:1px solid transparent;
-}
-.proj-card.featured{grid-column:1/-1;padding:2.35rem;}
-.proj-card::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
-  background:var(--accent);transform:scaleX(0);transform-origin:left;
-  transition:transform 0.32s cubic-bezier(0.22,0.61,0.36,1);
-}
-.proj-card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--card-hover-shadow);
-  border-color:rgba(212,69,26,0.12);
-}
-.proj-card:hover::after{transform:scaleX(1);}
-.proj-links{display:flex;gap:0.6rem;margin-top:1.1rem;flex-wrap:wrap;}
-.proj-btn{
-  font-size:0.8rem;font-weight:600;text-decoration:none;
-  padding:0.35rem 0.9rem;border-radius:2rem;
-  border:1.5px solid var(--border);color:var(--text);
-  transition:background 0.2s,color 0.2s,border-color 0.2s;
-}
-.proj-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
-.proj-btn.ghost{background:transparent;}
-.proj-num{
-  letter-spacing:0.08em;color:var(--accent);opacity:0.65;margin-bottom:0.9rem;font-size:0.78rem;
-}
-.proj-name{
-  font-family:var(--fd);font-weight:700;font-size:1.2rem;
-  letter-spacing:-0.01em;color:var(--text);margin-bottom:0.55rem;
-}
-.featured .proj-name{font-size:clamp(1.55rem,3vw,2.35rem);}
-.proj-desc{font-size:0.9rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem;max-width:760px;}
-.proj-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.8rem;margin:1.15rem 0;}
-.meta-item{background:rgba(247,246,241,0.58);border:1px solid var(--border);border-radius:0.7rem;padding:0.8rem 0.95rem;}
-.meta-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
-.meta-val{font-family:var(--fd);font-weight:700;font-size:0.92rem;color:var(--text);line-height:1.35;}
-.proj-impact{color:var(--text);font-size:0.88rem;line-height:1.55;margin:0 0 1.2rem;padding-left:1rem;border-left:2px solid rgba(212,69,26,0.35);}
-.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.proj-tag{
-  font-size:0.73rem;font-weight:600;background:rgba(17,17,17,0.07);
-  color:var(--text);padding:0.2rem 0.6rem;border-radius:0.3rem;letter-spacing:0.01em;
-}
+/* ---------- EDUCATION ---------- */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:start;}
+.edu-grid h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.35rem,2.6vw,1.85rem);letter-spacing:-0.02em;line-height:1.25;margin-bottom:0.5rem;}
+.edu-inst{font-size:1.02rem;color:var(--muted);margin-bottom:0.4rem;}
+.edu-date{font-family:var(--fm);font-size:0.85rem;color:var(--accent);}
+.edu-card{background:var(--surface);border-radius:12px;padding:1.4rem;}
+.edu-card .kicker{font-family:var(--fm);font-size:0.68rem;letter-spacing:0.11em;text-transform:uppercase;color:var(--faint);margin-bottom:0.6rem;}
+.edu-card p{font-size:0.95rem;line-height:1.7;}
 
-/* SKILLS */
-.skills-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;}
-.skill-group h3{
-  font-family:var(--fd);font-weight:700;font-size:0.82rem;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--text);
-  padding-bottom:0.65rem;margin-bottom:1rem;
-  border-bottom:1.5px solid var(--border);
-}
-.skill-pills{display:flex;flex-wrap:wrap;gap:0.45rem;}
-.skill-pill{
-  font-size:0.83rem;font-weight:500;
-  background:var(--bg);color:var(--text);
-  padding:0.3rem 0.85rem;border-radius:2rem;
-  border:1px solid var(--border);
-  transition:background 0.2s,color 0.2s,border-color 0.2s;
-  cursor:default;
-}
-.skill-pill:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+/* ---------- CONTACT ---------- */
+.contact{background:var(--text);color:var(--bg);border-top:1px solid var(--border);}
+.contact > .wrap{padding-top:clamp(3.5rem,8vw,6rem);padding-bottom:clamp(3.5rem,8vw,6rem);}
+.contact .s-num{color:var(--accent-light);}
+.contact .s-rule{background:rgba(247,246,241,0.18);}
+.contact h2{font-family:var(--fd);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.7rem);letter-spacing:-0.025em;line-height:1.1;margin-bottom:1rem;}
+.contact .lead{font-size:1.04rem;color:rgba(247,246,241,0.7);max-width:520px;margin-bottom:0.8rem;}
+.contact .fine{font-size:0.92rem;color:rgba(247,246,241,0.55);}
+.contact-list{display:grid;gap:0.7rem;}
+.contact-item{display:flex;align-items:center;justify-content:space-between;gap:1rem;text-decoration:none;color:var(--bg);border:1px solid rgba(247,246,241,0.18);border-radius:12px;padding:1rem 1.2rem;min-height:56px;transition:border-color .2s,background .2s;}
+.contact-item:hover{border-color:var(--accent-light);background:rgba(232,121,79,0.1);}
+.contact-item .label{font-family:var(--fm);font-size:0.66rem;letter-spacing:0.11em;text-transform:uppercase;color:rgba(247,246,241,0.5);display:block;margin-bottom:0.2rem;}
+.contact-item .value{font-family:var(--fd);font-weight:700;font-size:0.98rem;}
+.contact-item .arrow{color:var(--accent-light);}
+.contact-item.filled{background:var(--bg);color:var(--text);border-color:var(--bg);}
+.contact-item.filled:hover{background:var(--accent-light);color:var(--text);}
+.contact-item.filled .arrow{color:var(--text);}
 
-/* CONTACT */
-.contact-center{text-align:center;}
-.contact-sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 2.5rem;}
-.contact-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.contact-btn{
-  display:inline-flex;align-items:center;gap:0.5rem;font-size:0.9rem;
-  font-weight:600;color:var(--text);text-decoration:none;
-  padding:0.75rem 1.6rem;border:1.5px solid var(--border);border-radius:2rem;
-  transition:border-color 0.22s,color 0.22s,background 0.22s,transform 0.22s;
-}
-.contact-btn:hover{
-  border-color:var(--accent);color:var(--accent);
-  background:var(--accent-pale);transform:translateY(-2px);
-}
-.contact-note{margin-top:1.2rem;color:var(--muted);font-size:0.88rem;}
+/* ---------- FOOTER ---------- */
+.site-footer{background:var(--text);color:rgba(247,246,241,0.5);border-top:1px solid rgba(247,246,241,0.12);}
+.site-footer .wrap{display:flex;flex-wrap:wrap;gap:0.8rem;justify-content:space-between;align-items:center;padding-top:1.6rem;padding-bottom:1.6rem;font-family:var(--fm);font-size:0.75rem;}
 
-/* FOOTER */
-footer{
-  text-align:center;padding:2rem;
-  border-top:1px solid var(--border);
-  font-size:0.82rem;color:var(--muted);
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(22px);}
-  to{opacity:1;transform:translateY(0);}
-}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.75s ease,transform 0.75s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-/* RESPONSIVE */
+/* ---------- RESPONSIVE ---------- */
 @media(max-width:820px){
-  nav{padding:1rem 1.5rem;}
-  .page-wrap{padding:0 1.5rem;}
-  .about-cols{grid-template-columns:1fr;gap:2.5rem;}
-  .hero-bg-word{display:none;}
-  .s-block{padding:4rem 0;}
-  .nav-links{gap:1.25rem;}
-  .proj-card.featured{padding:2rem;}
+  .nav{display:none;}
+  .nav-toggle{display:flex;}
+  .hero-aside{border-left:none;border-top:2px solid rgba(212,69,26,0.35);padding-left:0;padding-top:1.2rem;}
 }
-@media(max-width:480px){
-  .nav-links{display:none;}
-  .hero-cta{flex-direction:column;align-items:flex-start;}
-  .hero-proof{gap:0.5rem;}
-  .proof-pill{font-size:0.78rem;}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .card:hover{transform:none;}
 }
 </style>
 </head>
-<body>
+<body id="top">
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">YA</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<a class="skip" href="#projects">Skip to projects</a>
 
-<!-- HERO -->
-<section id="hero">
-  <p class="hero-eyebrow">Full-Stack Software Engineer</p>
-  <h1 class="hero-name">Youssef<br><em>Ahmed.</em></h1>
-  <p class="hero-desc">Software Engineer building full-stack web applications, AI-powered platforms, and automated testing solutions with React, Node.js, MongoDB, Java, Selenium, and OpenAI APIs.</p>
-  <div class="hero-proof">
-    <span class="proof-pill">React + TypeScript</span>
-    <span class="proof-pill">Node.js APIs</span>
-    <span class="proof-pill">MongoDB</span>
-    <span class="proof-pill">OpenAI API</span>
-    <span class="proof-pill">Deployed apps</span>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">YA</span>
+      <span class="brand-name">Youssef Ahmed</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" type="button" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <div class="hero-cta">
-    <a href="#projects" class="btn-solid">View Projects</a>
-    <a href="https://github.com/joessef97" target="_blank" rel="noopener" class="btn-line">GitHub</a>
-    <a href="assets/Youssef_Ahmed_CV.pdf" download class="btn-line">Download CV</a>
-  </div>
-  <div class="hero-bg-word" aria-hidden="true">YA</div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-</section>
+<main>
 
-<hr class="hr">
-
-<!-- ABOUT -->
-<div class="page-wrap">
-<div class="s-block" id="about">
-  <p class="s-label reveal">About</p>
-  <div class="about-cols">
-    <div>
-      <h2 class="s-title reveal">I build usable software, not just coursework.</h2>
-      <div class="about-text reveal">
-        <p>I'm a Software Engineering student at The British University in Egypt (BUE), affiliated with London South Bank University, graduating in 2026. My work spans backend development, REST APIs, full-stack product features, automated testing, performance optimization, and software design.</p>
-        <p>I enjoy projects with real product shape: protected user accounts, searchable interfaces, persistent data, deployed demos, testable backend logic, and details that make an app feel finished. My current focus is full-stack development, practical AI integration, and reliable test coverage.</p>
-      </div>
-    </div>
-    <div class="about-cards reveal">
-      <div class="about-card">
-        <div class="about-card-label">University</div>
-        <div class="about-card-val">The British University in Egypt (BUE)</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-label">Degree</div>
-        <div class="about-card-val">BSc Computer Science — Software Engineering</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-label">Focus</div>
-        <div class="about-card-val">Full-stack web apps, APIs, AI product features</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-label">Languages</div>
-        <div class="about-card-val">Arabic (Native) · English (Fluent)</div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<hr class="hr">
-
-<!-- PROJECTS -->
-<div class="page-wrap">
-<div class="s-block" id="projects">
-  <p class="s-label reveal">Work</p>
-  <h2 class="s-title reveal">Selected Projects</h2>
-  <div class="proj-grid">
-
-    <div class="proj-card featured reveal">
-      <div class="proj-num">01 · 2025-2026 · Graduation Project</div>
-      <div class="proj-name">ComicMind</div>
-      <p class="proj-desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. Built with a React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage.</p>
-      <div class="proj-meta">
-        <div class="meta-item">
-          <div class="meta-label">Role</div>
-          <div class="meta-val">Full-stack developer</div>
+  <!-- HERO -->
+  <section class="wrap hero" id="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="pill">Open to junior software engineering roles</p>
+        <h1>Youssef Ahmed</h1>
+        <p class="hero-role">Full-Stack Software Engineer</p>
+        <p class="hero-desc">Software Engineer building full-stack web applications, AI-powered platforms, and automated testing solutions with React, Node.js, MongoDB, Java, Selenium, and OpenAI APIs.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="assets/Youssef_Ahmed_CV.pdf" download>Download CV</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
         </div>
-        <div class="meta-item">
-          <div class="meta-label">Scope</div>
-          <div class="meta-val">Auth, CRUD, AI generation, deployment</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Proof</div>
-          <div class="meta-val">Final report, interim demos, VIVA</div>
+        <div class="hero-links">
+          <a href="https://github.com/joessef97" target="_blank" rel="noopener">GitHub &#8599;</a>
+          <a href="https://linkedin.com/in/youssef-ahmed-545915283" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+          <a href="mailto:youssef_ahmed02@hotmail.com">youssef_ahmed02@hotmail.com</a>
         </div>
       </div>
-      <p class="proj-impact">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">TypeScript</span>
-        <span class="proj-tag">Node.js</span>
-        <span class="proj-tag">MongoDB</span>
-        <span class="proj-tag">OpenAI API</span>
-        <span class="proj-tag">Cloudinary</span>
-        <span class="proj-tag">JWT</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://comicmind.onrender.com/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
-        <a href="mailto:youssef_ahmed02@hotmail.com?subject=ComicMind%20technical%20walkthrough" class="proj-btn ghost">Discuss Build</a>
+      <div class="hero-aside">
+        <p class="kicker">Working with</p>
+        <p>React &middot; TypeScript &middot; Node.js &middot; MongoDB &middot; Java</p>
+        <p class="dim">Selenium &middot; TestNG &middot; Cucumber / Gherkin &middot; JUnit5</p>
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">02 · 2025</div>
-      <div class="proj-name">Glassdoor Web Application Testing</div>
-      <p class="proj-desc">Automated UI testing project for Glassdoor using Selenium WebDriver and Java, with TestNG for execution and Cucumber/Gherkin for BDD scenarios.</p>
-      <p class="proj-impact">Covers positive and negative scenarios for job search, company reviews, and employer overview behavior, with structured test cases, test data, expected results, and alternative paths.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Java</span>
-        <span class="proj-tag">Selenium WebDriver</span>
-        <span class="proj-tag">TestNG</span>
-        <span class="proj-tag">Cucumber</span>
-        <span class="proj-tag">Gherkin</span>
-        <span class="proj-tag">BDD</span>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="s-head"><span class="s-num">01 / About</span><span class="s-rule"></span></div>
+      <div class="two-col">
+        <div class="about-text">
+          <h2 class="s-title">I build usable software, not just coursework.</h2>
+          <p>I'm a Software Engineering student at The British University in Egypt (BUE), affiliated with London South Bank University, graduating in 2026. My work spans backend development, REST APIs, full-stack product features, automated testing, performance optimization, and software design.</p>
+          <p>I enjoy projects with real product shape: protected user accounts, searchable interfaces, persistent data, deployed demos, testable backend logic, and details that make an app feel finished. My current focus is full-stack development, practical AI integration, and reliable test coverage.</p>
+        </div>
+        <dl class="fact-grid">
+          <div class="fact"><dt>University</dt><dd>The British University in Egypt (BUE)</dd></div>
+          <div class="fact"><dt>Degree</dt><dd>BSc Computer Science &mdash; Software Engineering</dd></div>
+          <div class="fact"><dt>Focus</dt><dd>Full-stack web apps, APIs, AI product features</dd></div>
+          <div class="fact"><dt>Languages</dt><dd>Arabic (Native) &middot; English (Fluent)</dd></div>
+        </dl>
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">03 · 2025</div>
-      <div class="proj-name">Game Discovery Platform</div>
-      <p class="proj-desc">Full-stack app for searching and exploring video games through an external API. Includes authentication, autocomplete search, responsive layouts, and a deployed frontend.</p>
-      <p class="proj-impact">Shows practical API integration, user-facing search UX, and deployment workflow.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">Node.js</span>
-        <span class="proj-tag">Express</span>
-        <span class="proj-tag">MongoDB</span>
-        <span class="proj-tag">Vercel</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="s-head"><span class="s-num">02 / Projects</span><span class="s-rule"></span></div>
+      <h2 class="s-title" style="margin-bottom:0.6rem">Selected Projects</h2>
+      <p class="s-intro" style="margin-bottom:2.5rem">Seven academic and personal projects, most recent first. Live demos are linked where a deployment exists.</p>
+
+      <div class="proj-list">
+
+        <article class="card card-lg">
+          <div class="card-meta">
+            <span class="card-num">01 &middot; 2025&ndash;2026</span>
+            <span class="card-badge">Graduation project</span>
+          </div>
+          <h3>ComicMind</h3>
+          <p class="desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. Built with a React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage.</p>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Full-stack developer</dd></div>
+            <div><dt>Scope</dt><dd>Auth, CRUD, AI generation, deployment</dd></div>
+            <div><dt>Proof</dt><dd>Final report, interim demos, VIVA</dd></div>
+          </dl>
+          <p class="note">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application.</p>
+          <ul class="tags">
+            <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>OpenAI API</li><li>Cloudinary</li><li>JWT</li>
+          </ul>
+          <div class="card-links">
+            <a class="link-btn" href="https://comicmind.onrender.com/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+            <a class="link-btn" href="mailto:youssef_ahmed02@hotmail.com?subject=ComicMind%20technical%20walkthrough">Discuss Build</a>
+          </div>
+        </article>
+
+        <article class="card card-lg" id="project-glassdoor">
+          <div class="card-meta">
+            <span class="card-num">02 &middot; 2025</span>
+          </div>
+          <h3>Glassdoor Web Application Testing</h3>
+          <p class="desc">Automated UI testing project for Glassdoor using Selenium WebDriver and Java, with TestNG for execution and Cucumber/Gherkin for BDD scenarios.</p>
+          <dl class="spec">
+            <div><dt>Role</dt><dd>Test design &amp; automation</dd></div>
+            <div><dt>Coverage</dt><dd>Job search, company reviews, employer overview</dd></div>
+            <div><dt>Context</dt><dd>Academic project, not client work</dd></div>
+          </dl>
+          <p class="note">Covers positive and negative scenarios for job search, company reviews, and employer overview behavior, with structured test cases, test data, expected results, and alternative paths.</p>
+          <ul class="tags">
+            <li>Java</li><li>Selenium WebDriver</li><li>TestNG</li><li>Cucumber</li><li>Gherkin</li><li>BDD</li>
+          </ul>
+        </article>
+
+        <div class="proj-row">
+
+          <article class="card card-sm">
+            <span class="card-num" style="margin-bottom:0.7rem">03 &middot; 2025</span>
+            <h3>Game Discovery Platform</h3>
+            <p class="desc">Full-stack app for searching and exploring video games through an external API. Includes authentication, autocomplete search, responsive layouts, and a deployed frontend.</p>
+            <p class="note">Shows practical API integration, user-facing search UX, and deployment workflow.</p>
+            <ul class="tags" style="margin-bottom:1.1rem">
+              <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Vercel</li>
+            </ul>
+            <a class="link-btn" href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+          </article>
+
+          <article class="card card-sm">
+            <span class="card-num" style="margin-bottom:0.7rem">04 &middot; 2025</span>
+            <h3>Online Auction System</h3>
+            <p class="desc">GUI-based auction system in Java Swing applying Strategy, Observer, and Template Method design patterns. Backed by JUnit5 test suites for bidding and auction lifecycle logic.</p>
+            <p class="note">Highlights object-oriented design, test coverage, and maintainable Java architecture.</p>
+            <ul class="tags">
+              <li>Java</li><li>Swing</li><li>JUnit5</li><li>Design Patterns</li>
+            </ul>
+          </article>
+
+          <article class="card card-sm">
+            <span class="card-num" style="margin-bottom:0.7rem">05 &middot; 2024</span>
+            <h3>Habit Tracker Microservice</h3>
+            <p class="desc">Standalone microservice in a multi-team project delivering create, edit, delete, complete, and history tracking features with a React/Vite/Tailwind frontend and MongoDB Atlas backend.</p>
+            <p class="note">Demonstrates ownership inside a team system and the ability to ship a bounded service.</p>
+            <ul class="tags">
+              <li>React</li><li>Vite</li><li>Node.js</li><li>MongoDB Atlas</li><li>Tailwind CSS</li>
+            </ul>
+          </article>
+
+          <article class="card card-sm">
+            <span class="card-num" style="margin-bottom:0.7rem">06 &middot; 2022</span>
+            <h3>2D Action Game</h3>
+            <p class="desc">Single-level 2D game with sword combat, health bar UI, checkpoint-based respawn, dialogue interaction, and custom background music and sound effects.</p>
+            <p class="note">Adds range beyond web apps, with gameplay loops, state management, and interaction design.</p>
+            <ul class="tags">
+              <li>Java</li><li>Game Engine</li><li>Sound Design</li>
+            </ul>
+          </article>
+
+          <article class="card card-sm">
+            <span class="card-num" style="margin-bottom:0.7rem">07 &middot; 2025</span>
+            <h3>Sports Event Booking</h3>
+            <p class="desc">Responsive frontend for browsing and booking sports events, featuring interactive JavaScript behavior and a clean, semantic HTML/CSS interface.</p>
+            <p class="note">A focused frontend project that shows layout, interaction, and responsive UI fundamentals.</p>
+            <ul class="tags" style="margin-bottom:1.1rem">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+            <a class="link-btn" href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+          </article>
+
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">04 · 2025</div>
-      <div class="proj-name">Online Auction System</div>
-      <p class="proj-desc">GUI-based auction system in Java Swing applying Strategy, Observer, and Template Method design patterns. Backed by JUnit5 test suites for bidding and auction lifecycle logic.</p>
-      <p class="proj-impact">Highlights object-oriented design, test coverage, and maintainable Java architecture.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Java</span>
-        <span class="proj-tag">Swing</span>
-        <span class="proj-tag">JUnit5</span>
-        <span class="proj-tag">Design Patterns</span>
+  <!-- SKILLS -->
+  <section class="section tinted" id="skills">
+    <div class="wrap">
+      <div class="s-head"><span class="s-num">03 / Skills</span><span class="s-rule"></span></div>
+      <h2 class="s-title" style="margin-bottom:2.3rem">Technical Skills</h2>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <ul class="chips">
+            <li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>C++</li><li>SQL</li><li>HTML</li><li>CSS</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <ul class="chips">
+            <li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vite</li><li>Responsive UI</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Backend &amp; Data</h3>
+          <ul class="chips">
+            <li>Node.js</li><li>Express</li><li>MongoDB</li><li>MongoDB Atlas</li><li>REST APIs</li><li>JWT Auth</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Testing &amp; Performance</h3>
+          <ul class="chips">
+            <li>Selenium WebDriver</li><li>TestNG</li><li>Cucumber</li><li>Gherkin</li><li>JUnit5</li><li>Vitest</li><li>Supertest</li><li>K6</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Tools &amp; Platforms</h3>
+          <ul class="chips">
+            <li>Git</li><li>GitHub</li><li>Vercel</li><li>Render</li><li>Postman</li><li>VS Code</li><li>Cloudinary</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>AI &amp; Product</h3>
+          <ul class="chips">
+            <li>OpenAI API</li><li>Image Generation</li><li>Prompt Engineering</li><li>Product Thinking</li>
+          </ul>
+        </div>
+
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">05 · 2024</div>
-      <div class="proj-name">Habit Tracker Microservice</div>
-      <p class="proj-desc">Standalone microservice in a multi-team project delivering create, edit, delete, complete, and history tracking features with a React/Vite/Tailwind frontend and MongoDB Atlas backend.</p>
-      <p class="proj-impact">Demonstrates ownership inside a team system and the ability to ship a bounded service.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">Vite</span>
-        <span class="proj-tag">Node.js</span>
-        <span class="proj-tag">MongoDB Atlas</span>
-        <span class="proj-tag">Tailwind CSS</span>
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <div class="s-head"><span class="s-num">04 / Education</span><span class="s-rule"></span></div>
+      <div class="edu-grid">
+        <div>
+          <h2>BSc Computer Science &mdash; Software Engineering</h2>
+          <p class="edu-inst">The British University in Egypt (BUE), affiliated with London South Bank University</p>
+          <p class="edu-date">Graduating 2026</p>
+        </div>
+        <div class="edu-card">
+          <p class="kicker">Coursework covered</p>
+          <p>Backend development, REST APIs, full-stack product features, automated testing, performance optimization, and software design.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">06 · 2022</div>
-      <div class="proj-name">2D Action Game</div>
-      <p class="proj-desc">Single-level 2D game with sword combat, health bar UI, checkpoint-based respawn, dialogue interaction, and custom background music and sound effects.</p>
-      <p class="proj-impact">Adds range beyond web apps, with gameplay loops, state management, and interaction design.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">Java</span>
-        <span class="proj-tag">Game Engine</span>
-        <span class="proj-tag">Sound Design</span>
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="s-head"><span class="s-num">05 / Contact</span><span class="s-rule"></span></div>
+      <div class="two-col">
+        <div>
+          <h2>Let's Build Something Useful</h2>
+          <p class="lead">Open to software engineering opportunities, internships, collaborations, and technical walkthroughs of my projects.</p>
+          <p class="fine">Based in Egypt. Available for remote-friendly roles and project conversations. Email is the fastest way to reach me &mdash; messages go straight to my inbox.</p>
+        </div>
+        <div class="contact-list">
+          <a class="contact-item" href="mailto:youssef_ahmed02@hotmail.com">
+            <span><span class="label">Email</span><span class="value">youssef_ahmed02@hotmail.com</span></span>
+            <span class="arrow" aria-hidden="true">&#8594;</span>
+          </a>
+          <a class="contact-item" href="https://linkedin.com/in/youssef-ahmed-545915283" target="_blank" rel="noopener">
+            <span><span class="label">LinkedIn</span><span class="value">youssef-ahmed-545915283</span></span>
+            <span class="arrow" aria-hidden="true">&#8599;</span>
+          </a>
+          <a class="contact-item" href="https://github.com/joessef97" target="_blank" rel="noopener">
+            <span><span class="label">GitHub</span><span class="value">joessef97</span></span>
+            <span class="arrow" aria-hidden="true">&#8599;</span>
+          </a>
+          <a class="contact-item" href="tel:+201029972524">
+            <span><span class="label">Phone</span><span class="value">+20 102 997 2524</span></span>
+            <span class="arrow" aria-hidden="true">&#8594;</span>
+          </a>
+          <a class="contact-item filled" href="assets/Youssef_Ahmed_CV.pdf" download>
+            <span class="value">Download CV (PDF)</span>
+            <span class="arrow" aria-hidden="true">&#8595;</span>
+          </a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="proj-card reveal">
-      <div class="proj-num">07 · 2025</div>
-      <div class="proj-name">Sports Event Booking</div>
-      <p class="proj-desc">Responsive frontend for browsing and booking sports events, featuring interactive JavaScript behavior and a clean, semantic HTML/CSS interface.</p>
-      <p class="proj-impact">A focused frontend project that shows layout, interaction, and responsive UI fundamentals.</p>
-      <div class="proj-tags">
-        <span class="proj-tag">HTML</span>
-        <span class="proj-tag">CSS</span>
-        <span class="proj-tag">JavaScript</span>
-      </div>
-      <div class="proj-links">
-        <a href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener" class="proj-btn">Live Demo</a>
-      </div>
-    </div>
+</main>
 
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> Youssef Ahmed</span>
+    <span>Built with HTML, CSS &amp; vanilla JS</span>
   </div>
-</div>
-</div>
-
-<hr class="hr">
-
-<!-- SKILLS -->
-<div class="page-wrap">
-<div class="s-block" id="skills">
-  <p class="s-label reveal">Expertise</p>
-  <h2 class="s-title reveal">Technical Skills</h2>
-  <div class="skills-cols">
-
-    <div class="skill-group reveal">
-      <h3>Languages</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">Java</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">TypeScript</span>
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">C++</span>
-        <span class="skill-pill">SQL</span>
-        <span class="skill-pill">HTML</span>
-        <span class="skill-pill">CSS</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <h3>Frontend</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">React</span>
-        <span class="skill-pill">TypeScript</span>
-        <span class="skill-pill">Tailwind CSS</span>
-        <span class="skill-pill">Vite</span>
-        <span class="skill-pill">Responsive UI</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <h3>Backend & Data</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">Node.js</span>
-        <span class="skill-pill">Express</span>
-        <span class="skill-pill">MongoDB</span>
-        <span class="skill-pill">MongoDB Atlas</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">JWT Auth</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <h3>Testing & Performance</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">Selenium WebDriver</span>
-        <span class="skill-pill">TestNG</span>
-        <span class="skill-pill">Cucumber</span>
-        <span class="skill-pill">Gherkin</span>
-        <span class="skill-pill">Vitest</span>
-        <span class="skill-pill">Supertest</span>
-        <span class="skill-pill">JUnit5</span>
-        <span class="skill-pill">K6</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <h3>Tools & Platforms</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">GitHub</span>
-        <span class="skill-pill">Vercel</span>
-        <span class="skill-pill">Render</span>
-        <span class="skill-pill">Postman</span>
-        <span class="skill-pill">VS Code</span>
-        <span class="skill-pill">Cloudinary</span>
-      </div>
-    </div>
-
-    <div class="skill-group reveal">
-      <h3>AI & Product</h3>
-      <div class="skill-pills">
-        <span class="skill-pill">OpenAI API</span>
-        <span class="skill-pill">Image Generation</span>
-        <span class="skill-pill">Prompt Engineering</span>
-        <span class="skill-pill">Product Thinking</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-</div>
-
-<hr class="hr">
-
-<!-- CONTACT -->
-<div class="page-wrap">
-<div class="s-block contact-center" id="contact">
-  <p class="s-label reveal">Contact</p>
-  <h2 class="s-title reveal">Let's Build Something Useful</h2>
-  <p class="contact-sub reveal">Open to software engineering opportunities, internships, collaborations, and technical walkthroughs of my projects.</p>
-  <div class="contact-row reveal">
-    <a href="mailto:youssef_ahmed02@hotmail.com" class="contact-btn">Email</a>
-    <a href="assets/Youssef_Ahmed_CV.pdf" download class="contact-btn">Download CV</a>
-    <a href="https://linkedin.com/in/youssef-ahmed-545915283" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
-    <a href="https://github.com/joessef97" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
-    <a href="tel:+201029972524" class="contact-btn">+20 102 997 2524</a>
-  </div>
-  <p class="contact-note reveal">Based in Egypt. Available for remote-friendly roles and project conversations.</p>
-</div>
-</div>
-
-<footer>
-  <p>© <span id="yr"></span> Youssef Ahmed</p>
 </footer>
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-}, { passive: true });
+var toggle = document.getElementById('navToggle');
+var mobile = document.getElementById('navMobile');
+toggle.addEventListener('click', function () {
+  var open = mobile.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+mobile.addEventListener('click', function (e) {
+  if (e.target.tagName === 'A') {
+    mobile.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
 
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const siblings = entry.target.parentElement.querySelectorAll('.reveal:not(.visible)');
-      siblings.forEach((el, i) => {
-        setTimeout(() => el.classList.add('visible'), i * 80);
-      });
-      io.unobserve(entry.target);
-    }
+var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+var io = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) return;
+    var i = sections.indexOf(entry.target);
+    links.forEach(function (a, j) {
+      if (j === i) { a.setAttribute('aria-current', 'true'); }
+      else { a.removeAttribute('aria-current'); }
+    });
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
-reveals.forEach(el => io.observe(el));
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(function (s) { if (s) io.observe(s); });
 </script>
 
 </body>
