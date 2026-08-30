@@ -131,7 +131,8 @@ ul{list-style:none;}
 .card-links{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-top:1.2rem;}
 .link-btn{display:inline-flex;align-items:center;min-height:40px;font-size:0.85rem;font-weight:600;text-decoration:none;padding:0.5rem 1.1rem;border-radius:2rem;border:1.5px solid rgba(17,17,17,0.16);color:var(--text);transition:background .2s,color .2s,border-color .2s;}
 .link-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
-.card-sm .link-btn{margin-top:auto;align-self:flex-start;}
+.card-sm > .link-btn{margin-top:auto;align-self:flex-start;}
+.card-sm > .card-links{margin-top:auto;}
 
 /* ---------- SKILLS ---------- */
 .tinted{background:var(--surface);}
@@ -290,6 +291,7 @@ ul{list-style:none;}
           </ul>
           <div class="card-links">
             <a class="link-btn" href="https://comicmind.onrender.com/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+            <a class="link-btn" href="https://github.com/joessef97/comicmind" target="_blank" rel="noopener">Source &#8599;</a>
             <a class="link-btn" href="mailto:youssef_ahmed02@hotmail.com?subject=ComicMind%20technical%20walkthrough">Discuss Build</a>
           </div>
         </article>
@@ -309,6 +311,9 @@ ul{list-style:none;}
           <ul class="tags">
             <li>Java</li><li>Selenium WebDriver</li><li>TestNG</li><li>Cucumber</li><li>Gherkin</li><li>BDD</li>
           </ul>
+          <div class="card-links">
+            <a class="link-btn" href="https://github.com/joessef97/glassdoor-selenium-tests" target="_blank" rel="noopener">Source &#8599;</a>
+          </div>
         </article>
 
         <div class="proj-row">
@@ -321,7 +326,10 @@ ul{list-style:none;}
             <ul class="tags" style="margin-bottom:1.1rem">
               <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Vercel</li>
             </ul>
-            <a class="link-btn" href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+            <div class="card-links">
+              <a class="link-btn" href="https://game-vault-murex.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+              <a class="link-btn" href="https://github.com/joessef97/GameVault" target="_blank" rel="noopener">Source &#8599;</a>
+            </div>
           </article>
 
           <article class="card card-sm">
@@ -329,9 +337,10 @@ ul{list-style:none;}
             <h3>Online Auction System</h3>
             <p class="desc">GUI-based auction system in Java Swing applying Strategy, Observer, and Template Method design patterns. Backed by JUnit5 test suites for bidding and auction lifecycle logic.</p>
             <p class="note">Highlights object-oriented design, test coverage, and maintainable Java architecture.</p>
-            <ul class="tags">
+            <ul class="tags" style="margin-bottom:1.1rem">
               <li>Java</li><li>Swing</li><li>JUnit5</li><li>Design Patterns</li>
             </ul>
+            <a class="link-btn" href="https://github.com/joessef97/OnlineAuctionSystem-Java" target="_blank" rel="noopener">Source &#8599;</a>
           </article>
 
           <article class="card card-sm">
@@ -362,7 +371,10 @@ ul{list-style:none;}
             <ul class="tags" style="margin-bottom:1.1rem">
               <li>HTML</li><li>CSS</li><li>JavaScript</li>
             </ul>
-            <a class="link-btn" href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+            <div class="card-links">
+              <a class="link-btn" href="https://eventive-puce.vercel.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+              <a class="link-btn" href="https://github.com/joessef97/eventive" target="_blank" rel="noopener">Source &#8599;</a>
+            </div>
           </article>
 
         </div>
