@@ -1,0 +1,113 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Youssef Ahmed — Resume</title>
+<style>
+  @page { size: letter; margin: 0.45in; }
+  * { box-sizing: border-box; }
+  body { font: 9.5pt/1.32 "Calibri", "Segoe UI", system-ui, sans-serif; color: #111; margin: 0 auto;
+         max-width: 7.6in; padding: 0; background: #fff; }
+  @media screen { body { padding: 0.45in; max-width: 8.5in; } }
+  h1 { font-size: 18pt; text-align: center; margin: 0 0 2px; letter-spacing: .4px; }
+  .contact { text-align: center; font-size: 8.1pt; color: #333; margin-bottom: 9px; }
+  .contact a { color: #111; text-decoration: none; }
+  h2 { font-size: 9pt; letter-spacing: 1.1px; text-transform: uppercase; border-bottom: 1px solid #111;
+       padding-bottom: 1.5px; margin: 9px 0 4px; }
+  .entry { margin-bottom: 6px; }
+  .entry-head { font-weight: 700; }
+  .entry-head .stack { font-weight: 400; color: #333; font-size: 8.8pt; }
+  .entry-head .when { float: right; font-weight: 400; color: #333; }
+  ul { margin: 2px 0 0; padding-left: 15px; }
+  li { margin-bottom: 1.5px; }
+  .skills p { display: grid; grid-template-columns: 11.2em 1fr; gap: 0 6px; margin: 0 0 2px; }
+</style>
+
+<h1>Youssef Ahmed</h1>
+<div class="contact">
+  01029972524 | youssef_ahmed02@hotmail.com | linkedin.com/in/youssef-ahmed-545915283 |
+  github.com/joessef97 | joessef97.github.io<br>Cairo, Egypt
+</div>
+
+<h2>Summary</h2>
+<p style="margin:0">Software Engineer with experience building full-stack web applications, AI-powered platforms, and
+automated testing solutions using React, Node.js, MongoDB, Postgres, Java, Selenium, and OpenAI APIs. Strong foundation
+in backend development, REST APIs, asynchronous job processing, automated testing, performance optimization, and
+software design.</p>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="entry-head">BSc Computer Science &mdash; Software Engineering
+    <span class="when">Sep 2021 &ndash; Sep 2026</span></div>
+  <div>The British University in Egypt (BUE), affiliated with London South Bank University</div>
+</div>
+
+<h2>Certifications</h2>
+<p style="margin:0">Interactive Programming in Python (Rice University) &bull; Computational Thinking for Problem Solving
+(UPenn) &bull; Business Intelligence and Data Warehousing (UNAM) &mdash; Coursera, May 2026</p>
+
+<h2>Projects</h2>
+
+<div class="entry">
+  <div class="entry-head">ComicMind &mdash; AI Comic Generation Platform
+    <span class="when">2025&ndash;2026</span><br>
+    <span class="stack">React, TypeScript, Node.js, Express, MongoDB, PostgreSQL, Redis, BullMQ, Drizzle, Docker, OpenAI API, Cloudinary</span></div>
+  <ul>
+    <li>Achieved 100% user satisfaction on generated image quality and 100% recommendation rate in a structured user
+        evaluation study by architecting an end-to-end AI pipeline with deterministic character-consistency prompting
+        and OpenAI GPT-Image integration.</li>
+    <li>Eliminated work lost to closed tabs and process restarts by moving panel rendering off the request path onto a
+        Redis/BullMQ queue backed by a PostgreSQL job ledger, so a worker resumes an in-flight comic instead of
+        regenerating it from scratch.</li>
+    <li>Proved the recovery path holds under real failure by writing integration tests that kill the worker
+        mid-generation and close the client tab, running against live PostgreSQL and Redis in CI.</li>
+    <li>Delivered 0% failed requests and ~118ms average API response time under concurrent load (K6 benchmark) by
+        building and load-testing a Node.js/Express REST API backed by MongoDB Atlas.</li>
+    <li>Cut comic-retrieval query cost by adding targeted MongoDB indexes that shifted query execution from COLLSCAN
+        to IXSCAN.</li>
+    <li>Verified authentication and CRUD reliability with Vitest and Supertest tests covering registration, login, and
+        comic management endpoints.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">Glassdoor Web Application &mdash; Automated Testing
+    <span class="when">Software Testing Project</span><br>
+    <span class="stack">Java, Selenium WebDriver, TestNG, Cucumber, Gherkin</span></div>
+  <ul>
+    <li>Developed automated UI tests for Glassdoor using Selenium WebDriver and Java, with TestNG for test execution.</li>
+    <li>Created positive and negative automated scenarios for job search and company reviews, and tested employer
+        overview functionality.</li>
+    <li>Implemented BDD scenarios using Cucumber/Gherkin and structured test cases with preconditions, test data,
+        expected results, and alternative paths.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">Game Discovery Platform <span class="when">2025</span><br>
+    <span class="stack">React, Node.js, Express, MongoDB, JWT, RAWG API, Vercel</span></div>
+  <ul>
+    <li>Delivered a full-stack platform spanning game browsing/search, authentication, favorites, reviews, and an admin
+        dashboard using a JWT-secured backend and responsive React frontend.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-head">Online Auction System <span class="when">2025</span><br>
+    <span class="stack">Java, Swing, JUnit5</span></div>
+  <ul>
+    <li>Automated core bidding and auction lifecycle tests using JUnit5 while applying Strategy, Observer, and Template
+        Method design patterns.</li>
+  </ul>
+</div>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><b>Languages:</b> Java, JavaScript, TypeScript, Python, C++, SQL, HTML, CSS</p>
+  <p><b>Frontend:</b> React, TypeScript, Tailwind CSS, Vite</p>
+  <p><b>Backend &amp; Databases:</b> Node.js, Express, MongoDB, MongoDB Atlas, PostgreSQL, Drizzle ORM, Redis, BullMQ, job queues, REST APIs, JWT</p>
+  <p><b>Testing &amp; Performance:</b> Selenium WebDriver, TestNG, Cucumber, Gherkin, Vitest, Supertest, JUnit5, integration testing, K6</p>
+  <p><b>Tools &amp; Platforms:</b> Git, GitHub, GitHub Actions, Docker, Docker Compose, Vercel, Render, Cloudinary, VS Code, Postman</p>
+  <p><b>AI:</b> OpenAI API (GPT-4, GPT-Image), GitHub Copilot, Prompt Engineering</p>
+</div>
+
+<h2>Languages</h2>
+<p style="margin:0">Arabic: Native | English: Fluent</p>
