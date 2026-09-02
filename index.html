@@ -279,16 +279,16 @@ ul{list-style:none;}
             <span class="card-badge">Graduation project</span>
           </div>
           <h3>ComicMind</h3>
-          <p class="desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage. Panel rendering is backed by a durable generation pipeline &mdash; a Postgres job ledger and a Redis/BullMQ queue &mdash; so a worker resumes where it left off instead of losing a comic when a tab closes or a process restarts.</p>
+          <p class="desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage. Panel rendering runs on a durable generation pipeline built on MongoDB, so a worker resumes where it left off instead of losing a comic when a tab closes or a process restarts. Each job&rsquo;s panels are embedded in its ledger document, so every claim, counter update and state transition is a single atomic write &mdash; which is what gives exactly-once rendering and idempotent submits without a separate broker.</p>
           <dl class="spec">
             <div><dt>Role</dt><dd>Full-stack developer</dd></div>
             <div><dt>Scope</dt><dd>Auth, CRUD, AI generation, deployment</dd></div>
-            <div><dt>Reliability</dt><dd>Resumable queued rendering, verified by integration tests against real Postgres and Redis in CI</dd></div>
+            <div><dt>Reliability</dt><dd>Resumable queued rendering, verified by integration tests that kill the worker mid-generation against a real database</dd></div>
             <div><dt>Proof</dt><dd>Final report, interim demos, VIVA</dd></div>
           </dl>
-          <p class="note">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application &mdash; then harden it, moving slow image work off the request path so a failure mid-generation is recoverable rather than fatal.</p>
+          <p class="note">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application &mdash; then harden it, moving slow image work off the request path so a failure mid-generation is recoverable rather than fatal &mdash; and then simplify it, cutting the pipeline from three datastores to one without giving up any of those guarantees.</p>
           <ul class="tags">
-            <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>PostgreSQL</li><li>Redis</li><li>BullMQ</li><li>Drizzle</li><li>Docker</li><li>Vitest</li><li>OpenAI API</li><li>Cloudinary</li><li>JWT</li>
+            <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Job Queues</li><li>Vitest</li><li>OpenAI API</li><li>Cloudinary</li><li>JWT</li>
           </ul>
           <div class="card-links">
             <a class="link-btn" href="https://comicmind.onrender.com/" target="_blank" rel="noopener">Live Demo &#8599;</a>
@@ -407,7 +407,7 @@ ul{list-style:none;}
         <div class="skill-card">
           <h3>Backend &amp; Data</h3>
           <ul class="chips">
-            <li>Node.js</li><li>Express</li><li>MongoDB</li><li>MongoDB Atlas</li><li>PostgreSQL</li><li>Drizzle ORM</li><li>Redis</li><li>BullMQ</li><li>Job Queues</li><li>REST APIs</li><li>JWT Auth</li>
+            <li>Node.js</li><li>Express</li><li>MongoDB</li><li>MongoDB Atlas</li><li>Job Queues</li><li>REST APIs</li><li>JWT Auth</li>
           </ul>
         </div>
 
@@ -421,7 +421,7 @@ ul{list-style:none;}
         <div class="skill-card">
           <h3>Tools &amp; Platforms</h3>
           <ul class="chips">
-            <li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Docker Compose</li><li>Vercel</li><li>Render</li><li>Postman</li><li>VS Code</li><li>Cloudinary</li>
+            <li>Git</li><li>GitHub</li><li>Vercel</li><li>Render</li><li>Postman</li><li>VS Code</li><li>Cloudinary</li>
           </ul>
         </div>
 

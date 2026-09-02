@@ -29,7 +29,7 @@
 
 <h2>Summary</h2>
 <p style="margin:0">Software Engineer with experience building full-stack web applications, AI-powered platforms, and
-automated testing solutions using React, Node.js, MongoDB, Postgres, Java, Selenium, and OpenAI APIs. Strong foundation
+automated testing solutions using React, Node.js, MongoDB, Java, Selenium, and OpenAI APIs. Strong foundation
 in backend development, REST APIs, asynchronous job processing, automated testing, performance optimization, and
 software design.</p>
 
@@ -49,16 +49,16 @@ software design.</p>
 <div class="entry">
   <div class="entry-head">ComicMind &mdash; AI Comic Generation Platform
     <span class="when">2025&ndash;2026</span><br>
-    <span class="stack">React, TypeScript, Node.js, Express, MongoDB, PostgreSQL, Redis, BullMQ, Drizzle, Docker, OpenAI API, Cloudinary</span></div>
+    <span class="stack">React, TypeScript, Node.js, Express, MongoDB, Vitest, OpenAI API, Cloudinary</span></div>
   <ul>
     <li>Achieved 100% user satisfaction on generated image quality and 100% recommendation rate in a structured user
         evaluation study by architecting an end-to-end AI pipeline with deterministic character-consistency prompting
         and OpenAI GPT-Image integration.</li>
     <li>Eliminated work lost to closed tabs and process restarts by moving panel rendering off the request path onto a
-        Redis/BullMQ queue backed by a PostgreSQL job ledger, so a worker resumes an in-flight comic instead of
-        regenerating it from scratch.</li>
+        durable MongoDB-backed job queue, so a worker resumes an in-flight comic instead of regenerating it from
+        scratch.</li>
     <li>Proved the recovery path holds under real failure by writing integration tests that kill the worker
-        mid-generation and close the client tab, running against live PostgreSQL and Redis in CI.</li>
+        mid-generation and close the client tab, running against a live MongoDB instance.</li>
     <li>Delivered 0% failed requests and ~118ms average API response time under concurrent load (K6 benchmark) by
         building and load-testing a Node.js/Express REST API backed by MongoDB Atlas.</li>
     <li>Cut comic-retrieval query cost by adding targeted MongoDB indexes that shifted query execution from COLLSCAN
@@ -103,9 +103,9 @@ software design.</p>
 <div class="skills">
   <p><b>Languages:</b> Java, JavaScript, TypeScript, Python, C++, SQL, HTML, CSS</p>
   <p><b>Frontend:</b> React, TypeScript, Tailwind CSS, Vite</p>
-  <p><b>Backend &amp; Databases:</b> Node.js, Express, MongoDB, MongoDB Atlas, PostgreSQL, Drizzle ORM, Redis, BullMQ, job queues, REST APIs, JWT</p>
+  <p><b>Backend &amp; Databases:</b> Node.js, Express, MongoDB, MongoDB Atlas, job queues, REST APIs, JWT</p>
   <p><b>Testing &amp; Performance:</b> Selenium WebDriver, TestNG, Cucumber, Gherkin, Vitest, Supertest, JUnit5, integration testing, K6</p>
-  <p><b>Tools &amp; Platforms:</b> Git, GitHub, GitHub Actions, Docker, Docker Compose, Vercel, Render, Cloudinary, VS Code, Postman</p>
+  <p><b>Tools &amp; Platforms:</b> Git, GitHub, Vercel, Render, Cloudinary, VS Code, Postman</p>
   <p><b>AI:</b> OpenAI API (GPT-4, GPT-Image), GitHub Copilot, Prompt Engineering</p>
 </div>
 
