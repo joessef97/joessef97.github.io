@@ -86,10 +86,16 @@ software design.</p>
 
 <div class="entry">
   <div class="entry-head">Game Discovery Platform <span class="when">2025</span><br>
-    <span class="stack">React, Node.js, Express, MongoDB, JWT, RAWG API, Vercel</span></div>
+    <span class="stack">React, Node.js, Express, MongoDB, JWT, IGDB API, Jest, Vercel</span></div>
   <ul>
-    <li>Delivered a full-stack platform spanning game browsing/search, authentication, favorites, reviews, and an admin
-        dashboard using a JWT-secured backend and responsive React frontend.</li>
+    <li>Built a full-stack platform for game search, discovery and collection tracking on live data from the Twitch
+        IGDB catalogue, with JWT authentication, bcrypt-hashed credentials and email-based password reset.</li>
+    <li>Integrated the IGDB API with OAuth2 client-credentials token caching and a title-matching algorithm that
+        resolves the correct game from fuzzy search results, fixing a class of bug that opened unrelated pages.</li>
+    <li>Wrote 105 automated tests (Jest, Supertest, React Testing Library) running against an in-memory MongoDB, wired
+        to GitHub Actions CI on every push.</li>
+    <li>Deployed to Vercel as a static React build plus a serverless Express API on one origin, caching the Mongoose
+        connection across warm invocations to avoid exhausting the database connection pool.</li>
   </ul>
 </div>
 
