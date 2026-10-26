@@ -279,14 +279,14 @@ ul{list-style:none;}
             <span class="card-badge">Graduation project</span>
           </div>
           <h3>ComicMind</h3>
-          <p class="desc">Full-stack AI platform for generating multi-panel comic stories from text prompts. React/TypeScript frontend, Node.js API, MongoDB persistence, JWT authentication, protected story management, OpenAI image generation, and Cloudinary image storage. Panel rendering runs on a durable generation pipeline built on MongoDB, so a worker resumes where it left off instead of losing a comic when a tab closes or a process restarts. Each job&rsquo;s panels are embedded in its ledger document, so every claim, counter update and state transition is a single atomic write &mdash; which is what gives exactly-once rendering and idempotent submits without a separate broker.</p>
+          <p class="desc">AI comic-generation platform that turns text prompts into multi-panel stories while maintaining consistent character appearance across generated images. Built with a React/TypeScript frontend, Node.js/Express API, MongoDB, OpenAI API, Cloudinary, and JWT authentication.</p>
           <dl class="spec">
             <div><dt>Role</dt><dd>Full-stack developer</dd></div>
-            <div><dt>Scope</dt><dd>Idea &rarr; script &rarr; character-consistent panels in five art styles; drafts, public gallery, ratings and comments, PDF export</dd></div>
-            <div><dt>Reliability</dt><dd>Resumable queued rendering, verified by integration tests that kill the worker mid-generation against a real database</dd></div>
-            <div><dt>Proof</dt><dd>Final report, interim demos, VIVA</dd></div>
+            <div><dt>Character consistency</dt><dd>Structured character sheets and repeated visual prompts reduce appearance drift between panels</dd></div>
+            <div><dt>Reliability</dt><dd>Durable MongoDB-backed job queue resumes in-flight generation after a tab closes or a worker restarts</dd></div>
+            <div><dt>Validation</dt><dd>Recovery tested by terminating the worker mid-generation against a live MongoDB instance</dd></div>
           </dl>
-          <p class="note">Why it matters: this is the clearest proof that I can connect product design, backend architecture, third-party APIs, media storage, and a polished frontend into one working application &mdash; then harden it, moving slow image work off the request path so a failure mid-generation is recoverable rather than fatal &mdash; and then simplify it, cutting the pipeline from three datastores to one without giving up any of those guarantees.</p>
+          <p class="note">K6 benchmarks recorded 0% failed requests and ~118 ms average API response time under concurrent load. Targeted MongoDB indexes also improved comic retrieval by shifting query execution from COLLSCAN to IXSCAN.</p>
           <ul class="tags">
             <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Job Queues</li><li>Vitest</li><li>OpenAI API</li><li>Cloudinary</li><li>JWT</li>
           </ul>
